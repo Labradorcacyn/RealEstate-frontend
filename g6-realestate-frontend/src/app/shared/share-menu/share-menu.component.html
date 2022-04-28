@@ -1,0 +1,38 @@
+
+
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="push" class="grande">
+      <h3 class="center">MENÚ</h3><br>
+      <mat-list role="list">
+        <mat-list-item role="listitem"><a [routerLink]="['/vivienda']" routerLinkActive="router-link-active"> <mat-icon class="margin">cottage</mat-icon> Viviendas</a> </mat-list-item>
+        <mat-list-item role="listitem"><a [routerLink]="['/propietario']" routerLinkActive="router-link-active"> <mat-icon class="margin">person</mat-icon>Propietarios</a></mat-list-item>
+        <mat-list-item role="listitem"><a [routerLink]="['/listaInmobiliaria']" routerLinkActive="router-link-active"><mat-icon class="margin">villa</mat-icon>Inmobiliarias</a></mat-list-item>
+        <mat-list-item role="listitem"><a [routerLink]="['/interesado']" routerLinkActive="router-link-active"><mat-icon class="margin">favorite</mat-icon>Interesados</a></mat-list-item>
+        <mat-list-item role="listitem"><a [routerLink]="['/vivienda/nueva']" routerLinkActive="router-link-active"><mat-icon class="margin">add_business</mat-icon>Nueva vivienda</a></mat-list-item>
+        <mat-list-item role="listitem"><a [routerLink]="['/inmobiliaria/nueva']" routerLinkActive="router-link-active"><mat-icon class="margin">add_business</mat-icon>Nueva inmobiliaria</a></mat-list-item>
+        <mat-list-item role="listitem"><a [routerLink]="['/vivienda/filtro']" routerLinkActive="router-link-active"><mat-icon class="margin">filter</mat-icon>Filtrar</a></mat-list-item>
+
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem"><mat-icon class="margin">logout</mat-icon>Salir</mat-list-item>
+      </mat-list>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>RealEstate</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+          <mat-icon>share</mat-icon>
+        </button>
+
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>

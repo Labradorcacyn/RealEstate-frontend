@@ -1,0 +1,11 @@
+<p>
+  <mat-card>
+      <mat-card-content>
+          {{inmobiliaria.nombre}}
+          <div class="w70">
+            <button mat-raised-button class="info" [routerLink]="['/inmobiliaria/detalle/',inmobiliaria.id]"
+                routerLinkActive="router-link-active">Más información</button>
+        </div>
+      </mat-card-content>
+  </mat-card>
+</p>

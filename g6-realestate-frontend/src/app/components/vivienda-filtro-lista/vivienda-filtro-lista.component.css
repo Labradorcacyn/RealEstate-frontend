@@ -1,0 +1,62 @@
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.formulario{
+    width: 50%;
+    margin: 50px auto ;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    box-shadow: 1px 1px 50px rgba(200, 200, 200, 1);
+    display: flex;
+    padding: 10px;
+    height: 200px;
+  }
+  .debug{
+      border: 1px red solid;
+  }
+.w25{
+  width: 24.5%;
+  height: 65px;
+  }
+.w30{
+    width: 30%;
+}
+.w40{
+    width: 40%;
+}
+.w50{
+    width: 50%;
+}
+.w60{
+    width: 60%;
+}
+.w100{
+    width: 100%;
+}
+.tipo{
+    height: 50px;
+}
+.resto{
+    height: 140px;
+    margin-top: 10px;
+}
+.marg{
+    margin-left: 15px;
+}
+.w33{
+    width: 33%;
+}
+.wAll{
+    height: 90%;
+}
+.borde{
+    background-color: royalblue;
+    height: 3px;
+}
+.botonBorrarP{
+    position: absolute;
+    right: 60px;
+    top: 100px;
+  }

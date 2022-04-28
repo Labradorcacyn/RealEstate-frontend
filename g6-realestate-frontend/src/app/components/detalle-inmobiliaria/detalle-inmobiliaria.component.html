@@ -1,0 +1,38 @@
+<div>
+    <div class="flex">
+        <div class="w40">
+            <div class="cajaGeneral espacio">
+                <div class="titulo">Informacion de la inmobiliaria</div>
+                <div class="w70">
+                    <hr>
+                <br>
+                <a [routerLink]="['/inmobiliaria/{{inmoDetalle.id}}']"  routerLinkActive="router-link-active">
+                    <button mat-fab class="botonBorrar" (click)="borrarInmobiliaria()">
+                        <mat-icon >delete</mat-icon>
+                    </button>
+                </a>
+                <div class="w40 inmo">
+                    <span class="bold">Nombre: </span> {{inmoDetalle.nombre}}
+                </div>
+                <div class="w40 inmo">
+                    <span class="bold">Email: </span> {{inmoDetalle.email}}
+                </div>
+                <div class="w40">
+                    <span class="bold">Telefono: </span> {{inmoDetalle.telefono}}
+                </div>
+                <div class="w40">
+                    <span class="bold">Viviendas: </span>
+                    <div class="w40 right" *ngFor="let vivienda of viviendas">
+                        <img *ngIf="vivienda.avatar !== '' || vivienda.avatar == undefined; else imgNotFound"
+                            src="assets/img/avatarVivienda/{{vivienda.avatar}}.jpg" alt="" width="90%" height="80%" />
+                        <ng-template #imgNotFound>
+                            <img src="assets/img/avatarVivienda/default.jpg" alt="" width="90%" height="80%" />
+                        </ng-template>
+                        {{vivienda.titulo}}
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

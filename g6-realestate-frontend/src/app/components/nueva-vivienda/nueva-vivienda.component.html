@@ -1,0 +1,215 @@
+<h1 class="centrar">Registro de Casa</h1>
+
+<form class="formulario">
+    <div class="titulo w100">Datos de la vivienda
+        <div class="w70">
+            <hr>
+        </div>
+    </div>
+    <div class=" w50">
+        <mat-form-field hintLabel="Máx 30 caracteres" appearance="fill">
+            <mat-label>Título</mat-label>
+            <input matInput #input maxlength="30" placeholder="Casa histórica" required="true" name="titulo"
+                [(ngModel)]="registerDto.titulo">
+            <mat-hint align="end">{{input.value?.length || 0}}/30</mat-hint>
+        </mat-form-field>
+    </div>
+    <div class=" w50">
+        <mat-form-field appearance="fill">
+            <mat-label>Tipo</mat-label>
+            <mat-select required="true" [(ngModel)]="registerDto.tipo" name="tipo">
+                <mat-option value="Venta">Venta</mat-option>
+                <mat-option value="Alquiler">Alquiler</mat-option>
+                <mat-option value="Obra_Nueva">Obra nueva</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class=" w50">
+        <mat-form-field appearance="fill">
+            <mat-label>Metros Cuadrados</mat-label>
+            <input matInput type="number" placeholder="185" required="true" [(ngModel)]="registerDto.metrosCuadrados"
+                min="0" name="metrosCuadrados">
+        </mat-form-field>
+    </div>
+    <div class="w50">
+
+        <mat-form-field appearance="fill">
+            <mat-label>Precio en €</mat-label>
+            <input matInput type="number" class="example-right-align" placeholder="0" required="true"
+                [(ngModel)]="registerDto.precio" min="0" name="precio">
+        </mat-form-field>
+    </div>
+    <div class=" w50">
+        <mat-form-field appearance="fill">
+            <mat-label>Nº Baños</mat-label>
+            <input matInput type="number" class="example-right-align" placeholder="0" required="true"
+                [(ngModel)]="registerDto.numBanos" min="0" name="numBanos">
+        </mat-form-field>
+    </div>
+    <div class=" w50">
+        <mat-form-field appearance="fill">
+            <mat-label>Nº Habitaciones</mat-label>
+            <input matInput type="number" class="example-right-align" placeholder="0" required="true"
+                [(ngModel)]="registerDto.numHabitaciones" min="0" name="numHabitaciones">
+        </mat-form-field>
+    </div>
+    <div class=" w50">
+        <mat-form-field appearance="fill">
+            <mat-label>Dirección</mat-label>
+            <input matInput placeholder="C/Rosal n 12" required="true" [(ngModel)]="registerDto.direccion" name="direccion">
+        </mat-form-field>
+    </div>
+    <div class=" w50">
+        <mat-form-field appearance="fill">
+            <mat-label>Población</mat-label>
+            <input matInput placeholder="Palomares Del Río" required="true" [(ngModel)]="registerDto.poblacion" name="poblacion">
+        </mat-form-field>
+    </div>
+    <div class=" w50">
+        <mat-form-field appearance="fill">
+            <mat-label>Provincia</mat-label>
+            <input matInput placeholder="Sevilla" required="true" [(ngModel)]="registerDto.provincia" name="provincia">
+        </mat-form-field>
+    </div>
+    <div class="w50">
+        <mat-form-field appearance="fill">
+            <mat-label>Código Postal</mat-label>
+            <input matInput placeholder="41952" required="true" [(ngModel)]="registerDto.codPostal" name="codPostal">
+        </mat-form-field>
+    </div>
+    <div class="w50">
+        <mat-form-field appearance="fill">
+            <mat-label>Latitud y longitud</mat-label>
+            <input matInput placeholder="21.2  91.24" [(ngModel)]="registerDto.latLng" name="latLng">
+        </mat-form-field>
+    </div>
+    <div class=" w50">
+        <mat-form-field appearance="fill">
+            <mat-label>Foto</mat-label>
+            <mat-select required="true" [(ngModel)]="registerDto.avatar" name="avatar">
+                <mat-option value="avatar1">Avatar 1</mat-option>
+                <mat-option value="avatar2">Avatar 2</mat-option>
+                <mat-option value="avatar3">Avatar 3</mat-option>
+                <mat-option value="avatar4">Avatar 4</mat-option>
+                <mat-option value="avatar5">Avatar 5</mat-option>
+                <mat-option value="avatar6">Avatar 6</mat-option>
+                <mat-option value="avatar7">Avatar 7</mat-option>
+                <mat-option value="avatar8">Avatar 8</mat-option>
+                <mat-option value="avatar9">Avatar 9</mat-option>
+                <mat-option value="avatar10">Avatar 10</mat-option>
+                <mat-option value="avatar11">Avatar 11</mat-option>
+                <mat-option value="avatar12">Avatar 12</mat-option>
+                <mat-option value="avatar13">Avatar 13</mat-option>
+                <mat-option value="avatar14">Avatar 14</mat-option>
+                <mat-option value="avatar15">Avatar 15</mat-option>
+                <mat-option value="avatar16">Avatar 16</mat-option>
+                <mat-option value="avatar17">Avatar 17</mat-option>
+                <mat-option value="avatar18">Avatar 18</mat-option>
+                <mat-option value="avatar19">Avatar 19</mat-option>
+                <mat-option value="avatar20">Avatar 20</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="w50">
+        <mat-form-field appearance="fill">
+            <mat-label>Descripción</mat-label>
+            <textarea matInput [(ngModel)]="registerDto.descripcion" name="descripcion"></textarea>
+          </mat-form-field>
+    </div>
+   
+    
+    <div class="w100">
+        <section>
+            <mat-checkbox class="espacio"  [(ngModel)]="registerDto.tienePiscina" value=true name="piscina">Tiene piscina</mat-checkbox>
+            <mat-checkbox class="espacio" [(ngModel)]="registerDto.tieneGaraje" value=true name="garaje">Tiene Garaje</mat-checkbox>
+            <mat-checkbox class="espacio" [(ngModel)]="registerDto.tieneAscensor" value=true name="ascensor">Tiene Ascensor</mat-checkbox>
+        </section>
+    </div>
+    <div class="w100  flex medio">
+        <div>
+            <button mat-button class="colorBtn" (click)="addPropietario(1)">Propietario Nuevo</button>
+        </div>
+        <div>
+            <button mat-button class="colorBtn" (click)="addPropietario(-1)"> Propietario existente</button>
+        </div>
+    </div>
+    <div *ngIf="value==1" class="w100  flexy">
+        <div class="titulo w100">Datos del propietario
+            <div class="w70">
+                <hr>
+            </div>
+        </div>
+        <div class="w50">
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input matInput placeholder="Jose Raul" [(ngModel)]="registerDto.nombre" name="nombre">
+            </mat-form-field>
+        </div>
+        <div class="w50">
+            <mat-form-field appearance="fill">
+                <mat-label>Apellidos</mat-label>
+                <input matInput placeholder="Vazquez Gomez" [(ngModel)]="registerDto.apellidos" name="apellidos">
+            </mat-form-field>
+        </div>
+        <div class="w50">
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="ejemplo@gmail.com" [(ngModel)]="registerDto.email" type="email" name="email">
+            </mat-form-field>
+        </div>
+        <div class="w50">
+            <mat-form-field appearance="fill">
+                <mat-label>Dirección</mat-label>
+                <input matInput placeholder="C/Almudena n 6" [(ngModel)]="registerDto.direccionPropietario" name="direccionPropietario">
+            </mat-form-field>
+        </div>
+        <div class="w50 ">
+            <mat-form-field appearance="fill">
+                <mat-label >Teléfono</mat-label>
+                <input matInput placeholder="+34 322 234 124" [(ngModel)]="registerDto.telefono" name="telefono">
+            </mat-form-field>
+        </div>
+        <div class=" w50">
+            <mat-form-field appearance="fill">
+                <mat-label>Foto</mat-label>
+                <mat-select [(ngModel)]="registerDto.avatarPropietario" name="avatarPropietario">
+                    <mat-option value="avatar1">Avatar 1</mat-option>
+                    <mat-option value="avatar2">Avatar 2</mat-option>
+                    <mat-option value="avatar3">Avatar 3</mat-option>
+                    <mat-option value="avatar4">Avatar 4</mat-option>
+                    <mat-option value="avatar5">Avatar 5</mat-option>
+                    <mat-option value="avatar6">Avatar 6</mat-option>
+                    <mat-option value="avatar7">Avatar 7</mat-option>
+                    <mat-option value="avatar8">Avatar 8</mat-option>
+                    <mat-option value="avatar9">Avatar 9</mat-option>
+                    <mat-option value="avatar10">Avatar 10</mat-option>
+                    <mat-option value="avatar11">Avatar 11</mat-option>
+                    <mat-option value="avatar12">Avatar 12</mat-option>
+                    <mat-option value="avatar13">Avatar 13</mat-option>
+                    <mat-option value="avatar14">Avatar 14</mat-option>
+                    <mat-option value="avatar15">Avatar 15</mat-option>
+                    <mat-option value="avatar16">Avatar 16</mat-option>
+                    <mat-option value="avatar17">Avatar 17</mat-option>
+                    <mat-option value="avatar18">Avatar 18</mat-option>
+                    <mat-option value="avatar19">Avatar 19</mat-option>
+                    <mat-option value="avatar20">Avatar 20</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div *ngIf="value==-1" class="w100 ">
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Propietario</mat-label>
+            <mat-select  [(ngModel)]="registerDto.id" name="id">
+                <mat-option value="">Sin propietario</mat-option>
+                <mat-option *ngFor="let prop of listaProp" [value]="prop.id"> {{prop.nombre}} {{prop.apellido}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div *ngIf="value!=0" class=" w100">
+        <div class="centrar">
+            <button mat-button class="colorBtn" (click)="valida()">Enviar</button>
+        </div>
+    </div> 
+</form>

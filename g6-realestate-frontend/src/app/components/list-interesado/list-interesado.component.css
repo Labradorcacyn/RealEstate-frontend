@@ -1,0 +1,12 @@
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.example-card {
+    max-width: 10%;
+    margin-inline: 8%;
+    margin-top: 5%;
+}
+

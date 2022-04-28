@@ -1,0 +1,12 @@
+.scroll-container {
+    height: 420px;
+    overflow: auto;
+    display: flex;
+    justify-content:flex-start;
+}
+#title {
+    text-align: left;
+    font-weight: 500;
+    font-size:x-large;
+    margin: 20px;
+}

@@ -1,0 +1,97 @@
+<div class="formulario">
+    <form class="w100">
+        <div class="tipo w100 flex">
+            <div class="w33">
+                <button mat-button class="w100 wAll" (click)="cambiarTipo(0)"> Venta</button>
+                <div  *ngIf="val==0" class="w100 borde">
+                </div>
+            </div>
+            <div class="w33">
+                <button mat-button class="w100 wAll" (click)="cambiarTipo(1)"> Alquiler</button>
+                <div  *ngIf="val==1" class="w100 borde">
+                </div>
+            </div>
+
+
+            <div class="w33 ">
+                <button mat-button class="w100 wAll"(click)="cambiarTipo(2)" >Obra nueva</button>
+                <div  *ngIf="val==2" class="w100 borde">
+                </div>
+            </div>
+        </div>
+        <div class="w100 resto flex">
+            <div class="w25">
+                <mat-form-field appearance="fill">
+                    <mat-label>Dirección</mat-label>
+                    <input matInput placeholder="C/Rosal n 12" [(ngModel)]="direccion" name="direccion">
+                </mat-form-field>
+            </div>
+            <div class=" w25">
+                <mat-form-field appearance="fill">
+                    <mat-label>Población</mat-label>
+                    <input matInput placeholder="Mairena" [(ngModel)]="poblacion" name="poblacion">
+                </mat-form-field>
+            </div>
+            <div class=" w25">
+                <mat-form-field appearance="fill">
+                    <mat-label>Provincia</mat-label>
+                    <input matInput placeholder="Sevilla" [(ngModel)]="provincia" name="provincia">
+                </mat-form-field>
+            </div>
+            <div class=" w25">
+                <mat-form-field appearance="fill">
+                    <mat-label>Metros Cuadrados</mat-label>
+                    <input matInput type="number" placeholder="185" min="0" name="metrosCuadrados" [(ngModel)]="metrosCuadrados">
+                </mat-form-field>
+            </div>
+            <div class=" w25">
+                <mat-form-field appearance="fill">
+                    <mat-label>Nº Baños</mat-label>
+                    <mat-select name="numBanos" [(ngModel)]="numBanos">
+                        <mat-option value="1">1</mat-option>
+                        <mat-option value="2">2</mat-option>
+                        <mat-option value="3">3</mat-option>
+                        <mat-option value="4">4</mat-option>
+                        <mat-option value="5">5</mat-option>
+                        <mat-option value="6">6</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="w25">
+                <mat-form-field appearance="fill">
+                    <mat-label>Nº Habitaciones</mat-label>
+                    <mat-select name="numHabitaciones" [(ngModel)]="numHabitaciones">
+                        <mat-option value="1">1</mat-option>
+                        <mat-option value="2">2</mat-option>
+                        <mat-option value="3">3</mat-option>
+                        <mat-option value="4">4</mat-option>
+                        <mat-option value="5">5</mat-option>
+                        <mat-option value="6">6</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="w25">
+                <section>
+                    <mat-checkbox class="espacio" value=true name="piscina" [(ngModel)]="tienePiscina">Tiene piscina</mat-checkbox>
+                    <mat-checkbox class="espacio" value=true name="garaje" class="marg" [(ngModel)]="tieneGaraje">Tiene Garaje</mat-checkbox>
+                    <mat-checkbox class="espacio" value=true name="ascensor" [(ngModel)]="tieneAscensor">Tiene Ascensor</mat-checkbox>
+                </section>
+            </div>
+            <div class="w25">
+                <mat-form-field appearance="fill">
+                    <mat-label>Precio en €</mat-label>
+                    <input matInput type="number" placeholder="máximo" min="0" name="metrosCuadrados" [(ngModel)]="precio">
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="flex">
+    <app-item-vivienda-lista *ngFor="let vivienda of listaVivienda" [viviendaInput]="vivienda">
+    </app-item-vivienda-lista>
+</div>
+<div class="botonBorrarP">
+    <button mat-fab class="botonBorrar" (click)="filtrar()">
+        <mat-icon >filter</mat-icon>
+    </button>
+</div>

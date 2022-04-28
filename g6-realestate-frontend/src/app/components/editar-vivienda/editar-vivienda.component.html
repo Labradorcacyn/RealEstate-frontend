@@ -1,0 +1,78 @@
+<h1>Editar vivienda</h1>
+
+<form class="formulario" (ngSubmit) ="save($event)">
+  <div class="titulo w100">Datos de la vivienda
+    <div class="w70">
+      <hr>
+    </div>
+  </div>
+  <div class=" w50">
+    <mat-form-field hintLabel="Máx 30 caracteres" appearance="fill">
+      <mat-label>Título</mat-label>
+      <input matInput #input  name="titulo" [(ngModel)]="viviendaDetalle.titulo">
+      <mat-hint align="end">{{input.value?.length || 0}}/30</mat-hint>
+    </mat-form-field>
+  </div>
+  <div class=" w50">
+    <mat-form-field appearance="fill">
+      <mat-label>Tipo</mat-label>
+      <mat-select [(ngModel)]="viviendaDetalle.tipo" name="tipo">
+        <mat-option value="Venta">Venta</mat-option>
+        <mat-option value="Alquiler">Alquiler</mat-option>
+        <mat-option value="Obra_Nueva">Obra nueva</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class=" w50">
+    <mat-form-field appearance="fill">
+      <mat-label>Metros Cuadrados</mat-label>
+      <input matInput  [(ngModel)]="viviendaDetalle.metrosCuadrados"
+             min="0" name="metrosCuadrados">
+    </mat-form-field>
+  </div>
+  <div class="w50">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Precio en €</mat-label>
+      <input matInput type="number" class="example-right-align" [(ngModel)]="viviendaDetalle.precio" min="0" name="precio">
+    </mat-form-field>
+  </div>
+  <div class=" w50">
+    <mat-form-field appearance="fill">
+      <mat-label>Dirección</mat-label>
+      <input matInput [(ngModel)]="viviendaDetalle.direccion" name="direccion">
+    </mat-form-field>
+  </div>
+  <div class=" w50">
+    <mat-form-field appearance="fill">
+      <mat-label>Población</mat-label>
+      <input matInput [(ngModel)]="viviendaDetalle.poblacion" name="poblacion">
+    </mat-form-field>
+  </div>
+  <div class=" w50">
+    <mat-form-field appearance="fill">
+      <mat-label>Provincia</mat-label>
+      <input matInput [(ngModel)]="viviendaDetalle.provincia" name="provincia">
+    </mat-form-field>
+  </div>
+  <div class="w50">
+    <mat-form-field appearance="fill">
+      <mat-label>Código Postal</mat-label>
+      <input matInput [(ngModel)]="viviendaDetalle.codPostal" name="codPostal">
+    </mat-form-field>
+  </div>
+  <div class="w100">
+    <mat-form-field appearance="fill">
+      <mat-label>Latitud y longitud</mat-label>
+      <input matInput [(ngModel)]="viviendaDetalle.latLng" name="latLng">
+    </mat-form-field>
+  </div>
+  <div class="w100">
+    <section>
+      <mat-checkbox class="espacio"  [(ngModel)]="viviendaDetalle.tienePiscina" value=true name="piscina">Tiene piscina</mat-checkbox>
+      <mat-checkbox class="espacio" [(ngModel)]="viviendaDetalle.tieneGaraje" value=true name="garaje">Tiene Garaje</mat-checkbox>
+      <mat-checkbox class="espacio" [(ngModel)]="viviendaDetalle.tieneAscensor" value=true name="ascensor">Tiene Ascensor</mat-checkbox>
+    </section>
+  </div>
+  <button type="submit"><mat-icon>save</mat-icon></button>
+</form>

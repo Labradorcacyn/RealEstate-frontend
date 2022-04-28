@@ -1,0 +1,132 @@
+<div class="cajaCentral ">
+
+    <div class="box1 flex">
+        <div class="foto ">
+            <img *ngIf="viviendaDetalle.avatar !== '' || viviendaDetalle.avatar == undefined; else imgNotFound"
+            src="assets/img/avatarVivienda/{{viviendaDetalle.avatar}}.jpg" alt="" width="90%" height="80%"/>
+        <ng-template #imgNotFound>
+            <img src="assets/img/avatarVivienda/default.jpg" alt="" width="90%" height="80%"/>
+        </ng-template>
+            <div class="iconos">
+              <mat-icon aria-hidden="false" aria-label="Example home icon">visibility</mat-icon>{{total}}
+              <mat-icon (click)="openDialog()" aria-hidden="false" aria-label="Example home icon">favorite</mat-icon>
+              <mat-icon [routerLink]="['/vivienda/detalle/edit/',id]"
+              routerLinkActive="router-link-active"aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
+            </div>
+        </div>
+        <div class=" w40">
+            <div class="cajaCaracterisiticas">
+                <div class="titulo">Caracterísiticas</div>
+                <div class="w70">
+                    <hr>
+                </div><br>
+                <div><span class="bold">Metros cuadrados hábiles: </span> {{viviendaDetalle.metrosCuadrados}}m</div><br>
+                <div><span class="bold">Numero de habitaciones: </span> {{viviendaDetalle.numHabitaciones}}</div><br>
+                <div><span class="bold">Numero de baños: </span> {{viviendaDetalle.numBanos}}</div><br>
+                <div class="flex w70">
+                    <div *ngIf="viviendaDetalle.tieneGaraje" class="flex font">
+                        <mat-icon>garage</mat-icon>
+                        <div class="icono">Garaje</div>
+                    </div>
+                    <div *ngIf="viviendaDetalle.tienePiscina" class="flex font">
+                        <mat-icon>pool</mat-icon>
+                        <div class="icono">Piscina</div>
+                    </div>
+                    <div *ngIf="viviendaDetalle.tieneAscensor" class="flex font">
+                        <mat-icon>elevator</mat-icon>
+                        <div class="icono">Ascensor</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" w20 precio">
+            {{viviendaDetalle.precio}} €
+
+            <div class="fotoAvatar">
+                    <img *ngIf="viviendaDetalle.avatarPropietario !== '' || viviendaDetalle.avatarPropietario == undefined; else imgNotFound"
+                    src="assets/img/avatarPropietario/{{viviendaDetalle.avatarPropietario}}.jpg" alt="" height="180px"/>
+                <ng-template #imgNotFound>
+                    <img src="assets/img/avatarPropietario/default.jpg" alt="" height="180px"/>
+                </ng-template>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="flex">
+        <div class="w40">
+            <div class="cajaGeneral">
+                <div class="titulo">General</div>
+                <div class="w70">
+                    <hr>
+                </div><br>
+                <div class="subTitulo">{{viviendaDetalle.titulo}}</div><br>
+                <div class="w70">{{viviendaDetalle.descripcion}} </div>
+                <div class="w70 inmo">
+                    <span class="bold">Inmobiliaria:  </span> {{viviendaDetalle.inmobiliariaNombre}}
+
+                      <a [routerLink]="['/vivienda/detalle/{{viviendaDetalle.id}']"  routerLinkActive="router-link-active">
+                      <button mat-fab class="botonBorrar" (click)="borrarAsocViviInmo()">
+                          <mat-icon >delete</mat-icon>
+                      </button></a>
+
+                    <form class="espacio flex">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Inmobiliaria</mat-label>
+                            <mat-select [(ngModel)]="idInmobiliaria" name="idInmobiliaria">
+                                <mat-option *ngFor="let inm of listaInmobiliarias" [value]="inm.id"> {{inm.nombre}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <div>
+                            <a [routerLink]="['/vivienda']"  routerLinkActive="router-link-active">
+                            <button mat-button class="colorBtn" (click)="valida()">Enviar</button>
+                        </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="w30 ">
+            <div class="titulo">Localización</div>
+            <div class="w70">
+                <hr>
+            </div><br>
+            <div><span class="bold">Provincia: </span> {{viviendaDetalle.provincia}} </div><br>
+            <div><span class="bold">Poblacion: </span> {{viviendaDetalle.poblacion}}</div><br>
+            <div><span class="bold">Ubicacion: </span> {{viviendaDetalle.direccion}} </div><br>
+            <div><span class="bold">Código Postal: </span>{{viviendaDetalle.codPostal}}</div><br>
+            <div><span class="bold">Coordenadas: </span> {{viviendaDetalle.latLng}}</div>
+        </div>
+        <div class=" w30 ">
+            <div class="titulo">Propietario</div>
+            <div class="w70">
+                <hr>
+            </div>
+            <br>
+            <div><span class="bold">Nombre: </span>{{viviendaDetalle.nombre}} {{viviendaDetalle.apellidos}}</div>
+            <br>
+            <div class="flex">
+                <mat-icon>mail</mat-icon>
+                <div class="icono"> {{viviendaDetalle.email}}</div>
+            </div><br>
+            <div class="flex">
+                <mat-icon>phone</mat-icon>
+                <div class="icono"> {{viviendaDetalle.telefono}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="example-button-container">
+        <a [routerLink]="['/vivienda']"  routerLinkActive="router-link-active">
+        <button mat-fab class="botonAtras">
+            <mat-icon class="center">arrow_back_ios</mat-icon>
+        </button></a>
+    </div>
+    <div class="botonBorrarP">
+        <a [routerLink]="['/vivienda']"  routerLinkActive="router-link-active">
+        <button mat-fab class="botonBorrar" (click)="borrarVivienda()">
+            <mat-icon >delete</mat-icon>
+        </button></a>
+    </div>
+</div>

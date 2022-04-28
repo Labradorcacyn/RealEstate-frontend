@@ -1,0 +1,79 @@
+  <div id="header" >
+    <ul class="nav">
+      <li><a (click)="AddInteresado()">Me Interesa</a></li>
+      <li><a (click)="nuevoInteresa()">Nuevo Interesado</a></li>
+      <li><a (click)="borrarInteresa()">Borrar Interesado</a></li>
+    </ul>
+  </div>
+  <div class="formulario-nuevo-interesado" *ngIf="nInteresa==1">
+    <hr>
+    <mat-label>Selecciona el interesado</mat-label>
+    <mat-select [(ngModel)]= "idInteresado">
+      <mat-option style="overflow: auto" *ngFor="let interesado of interesados" [value]="interesado.id">{{interesado.nombre}} {{interesado.apellidos}}</mat-option>
+    </mat-select>
+    <div>
+      <hr>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Deja un comentario</mat-label>
+        <textarea matInput placeholder="Me encantan las vistas..." [(ngModel)]="mensaje"></textarea>
+      </mat-form-field>
+    </div>
+    <button mat-button mat-dialog-close color="primary" (click)="meInteresaInteresadoLog()">Me interesa</button>
+  </div>
+
+<div class="formulario-nuevo-interesado" *ngIf="nInteresa==2">
+  <p>Ingresar nuevo interesado</p>
+  <hr>
+  <table class="nuevo-interesado" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="nuevo-interesado" appearance="fill">
+          <mat-label>Nombre</mat-label>
+          <input matInput [(ngModel)]="nombre">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="nuevo-interesado" appearance="fill">
+          <mat-label>Apellidos</mat-label>
+          <input matInput [(ngModel)]="apellidos">
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field class="nuevo-interesado" appearance="fill">
+          <mat-label>Dirección</mat-label>
+          <input matInput [(ngModel)]="direccion">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="nuevo-interesado" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="email">
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field class="nuevo-interesado" appearance="fill">
+          <mat-label>Teléfono</mat-label>
+          <input matInput [(ngModel)]="telefono">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="nuevo-interesado" appearance="fill">
+          <mat-label>Avatar</mat-label>
+          <input matInput [(ngModel)]="avatar">
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <div>
+    <hr>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Deja un comentario</mat-label>
+      <textarea matInput placeholder="Me encantan las vistas..." [(ngModel)]="mensaje"></textarea>
+    </mat-form-field>
+  </div>
+  <button mat-button mat-dialog-close color="primary" (click)="ingresarInteresa()">Me interesa</button>
+</div>

@@ -1,0 +1,35 @@
+<h1 class="centrar">Registro de Inmobiliaria</h1>
+
+<form class="formulario">
+  <div class="titulo w100">Datos de la inmobiliaria
+    <div class="w70">
+      <hr>
+    </div>
+  </div>
+  <div class=" w50">
+    <mat-form-field hintLabel="Máx 30 caracteres" appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput #input maxlength="30" placeholder="Inmobiliarias Camarón" required="true" name="nombre"
+        [(ngModel)]="inmo.nombre">
+      <mat-hint align="end">{{input.value?.length || 0}}/30</mat-hint>
+    </mat-form-field>
+  </div>
+  <div class=" w50">
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput #input maxlength="30" placeholder="camaronRealEstate@gmail.com" required="true" name="email"
+        [(ngModel)]="inmo.email">
+    </mat-form-field>
+  </div>
+  <div class=" w50">
+    <mat-form-field appearance="fill">
+      <mat-label>Teléfono</mat-label>
+      <input matInput #input maxlength="30" placeholder="+34 658 324 156" required="true" name="telefono"
+        [(ngModel)]="inmo.telefono">
+    </mat-form-field>
+  </div>
+
+  <div class="centrar">
+    <button mat-button class="colorBtn" (click)="addInmobiliaria()">Enviar</button>
+  </div>
+</form>

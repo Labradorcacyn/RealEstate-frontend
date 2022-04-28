@@ -1,0 +1,28 @@
+<div class="flex">
+    <mat-card class="tamanoCard">
+        <img *ngIf="interesadoInput.avatar !== '' || interesadoInput.avatar == undefined; else imgNotFound"
+            src="assets/img/avatarInteresado/{{interesadoInput.avatar}}.jpg" alt=""/>
+        <ng-template #imgNotFound>
+            <img src="assets/img/avatarInteresado/default.jpg" alt=""/>
+        </ng-template>
+        <mat-card-header class="noFlex">
+            <div class="flex">
+                <h2 class="w75 titulo">{{interesadoInput.nombre}} {{interesadoInput.apellidos}}</h2>
+            </div>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="w100">{{interesadoInput.email}}</div>
+            <div class="w100">{{interesadoInput.direccion}} -- {{interesadoInput.telefono}}</div>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <div class="flex">
+                <div class="w70">
+                    <button mat-raised-button class="info"
+                        [routerLink]="['/interesado/detalle/',interesadoInput.id]"
+                        routerLinkActive="router-link-active">Más información</button>
+                </div>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+</div>

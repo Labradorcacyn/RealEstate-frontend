@@ -1,0 +1,32 @@
+
+<div class="flex">
+    <mat-card class="tamanoCard">
+        <img *ngIf="detailProp.avatarPropietario !== '' || detailProp.avatarPropietario == undefined; else imgNotFound"
+            src="assets/img/avatarPropietario/{{detailProp.avatarPropietario}}.jpg" alt="" width="20%"/>
+        <ng-template #imgNotFound>
+            <img src="assets/img/avatarPropietario/default.jpg" alt=""/>
+        </ng-template>
+        <a [routerLink]="['/propietario/detalle/{{detailProp.id}}']"  routerLinkActive="router-link-active">
+            <button mat-fab class="botonBorrar" (click)="borrarPropietario()">
+                <mat-icon >delete</mat-icon>
+            </button>
+        </a>
+        <mat-card-header class="noFlex">
+            <div class="flex">
+                <h2 class="w75 titulo">{{detailProp.nombre}} {{detailProp.apellidos}}</h2>
+            </div>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="w100">{{detailProp.email}}</div>
+            <div class="w100">{{detailProp.direccionPropietario}} -- {{detailProp.telefono}}</div>
+        </mat-card-content>
+        <br>
+        <div class="w75 titulo">Datos viviendas</div>
+        <br>
+        <mat-card-content *ngFor="let vivienda of viviendas">
+            <br>
+            <div class="w100" >{{vivienda.titulo}} {{vivienda.direccion}}</div>
+        </mat-card-content>
+    </mat-card>
+</div>
+

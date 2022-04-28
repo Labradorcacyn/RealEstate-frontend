@@ -1,0 +1,13 @@
+<div class="flex">
+    <app-item-propietario class="example-card" *ngFor="let propietario of propietarios" [propietarioInput]="propietario"></app-item-propietario>
+</div><br><br>
+
+    <div class="pagination">
+        <button mat-raised-button (click)="afterPagePropietario()">Anterior</button>
+        <button mat-raised-button (click)="firstPage()">1</button>
+        <span> Página actual :  {{contador+1}}</span>
+        <button mat-raised-button (click)="lastPage()">{{paginaEntera.totalPages}}</button>
+        <button mat-raised-button (click)="nextPagePropietario()">Siguiente</button>
+    </div>
+
+<br><br>

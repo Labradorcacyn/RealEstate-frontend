@@ -1,0 +1,17 @@
+<app-viviendas-top></app-viviendas-top>
+<br/>
+<mat-divider></mat-divider>
+<br/>
+<div class="flex">
+    <app-item-vivienda-lista *ngFor="let vivienda of viviendas" [viviendaInput]="vivienda"></app-item-vivienda-lista>
+</div><br><br>
+<div class="flex">
+    <div class="pagination">
+        <button mat-raised-button (click)="afterPageVivienda()">Anterior</button>
+        <button mat-raised-button (click)="firstPage()">1</button>
+        <span> Página actual :  {{contador+1}}</span>
+        <button mat-raised-button (click)="lastPage()">{{paginaEntera.totalPages}}</button>
+        <button mat-raised-button (click)="nextPageVivienda()">Siguiente</button>
+    </div>
+</div>
+<br><br>

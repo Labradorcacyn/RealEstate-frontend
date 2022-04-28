@@ -1,0 +1,6 @@
+<app-item-inmobiliaria class="inmobiliaria-item" *ngFor="let inmobiliaria of inmobiliariaList" [inmobiliaria] = "inmobiliaria"></app-item-inmobiliaria>
+
+<div class="botones">
+  <button mat-raised-button (click)="getNextPage()">Siguiente</button>
+  <button mat-raised-button (click)="getPreviousPage()">Anterior</button>
+</div>
